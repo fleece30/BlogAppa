@@ -1,0 +1,26 @@
+{
+  "name": "blogapp",
+  "version": "1.0.0",
+  "description": "Blog Application",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fleece30/BlogApp.git"
+  },
+  "keywords": [
+    "blog",
+    "application"
+  ],
+  "author": "Abhishek Yadav",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fleece30/BlogApp/issues"
+  },
+  "homepage": "https://github.com/fleece30/BlogApp#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
