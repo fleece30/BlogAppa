@@ -1,0 +1,28 @@
+<div id="popups">
+        <section id="popup1" class="overlay1">
+           <div id="img-container">
+                        <a onclick="$('body').css('overflow','visible');" routerLink="/" href="javascript:void(0)" class="popup1_close closebtn" id = "close">&times;</a>
+                       <div  id = "bmi-container">
+                           <div  id = "bmi-header">
+                               <h1 id = "bmi-heading">Calculate your <button onmouseenter = "bmitext()" onmouseout = "bmitextreset()" id = "bmitextbtn">BMI</button></h1>
+                           </div>
+                           <div id = "bmi-calc">
+                               <div id = "bmi-form">
+                                   Weight:<input type="text" id="weight" class = "input" required><br><br>
+                                   <select id = "unit" style="padding: 5px;">
+                                       <option id = "unit1" value = "1">kgs</option>
+                                       <option id = "unit2" value = "0">lbs</option>
+                                   </select><br><br>
+                                   Height:<input type="text" id="height" class = "input" required><br><br>
+                                   <br><button onclick = "bmi()" id = "calcbtn">Calcutale BMI</button> 
+                                   <span id = "bmi-result"></span>    
+                               </div>
+
+                           </div>
+                           <div id = "bmi-img">
+                             <img id = "bmibackimg" src = "../../../assets/BMI-Background.png" style='height: 220px; width: 110px;'>
+                           </div>
+                       </div>
+        </div>
+    </section>
+</div>

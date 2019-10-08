@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="#"><img src="../../../assets/logo.png" style="height:40px; width:40px;"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li *ngIf="!authService.loggedIn()" class="nav-item homeb">
+                    <a class="nav-link" routerLink="/">HOME</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link popup1_open" routerLink="/popup" style="cursor: pointer;">BMI CALCULATOR</a>
+                </li>
+                <li *ngIf="!authService.loggedIn()" class="nav-item">
+                    <a class="nav-link">MEDICAL HISTORY</a>
+                </li>
+                <li *ngIf="!authService.loggedIn()" class="nav-item">
+                    <a class="nav-link">NOTIFICATIONS</a>
+                </li>
+                <li *ngIf="authService.loggedIn()" class="nav-item">
+                    <a class="nav-link" routerLink="/login">LOGIN</a>
+                </li>
+                <li *ngIf="authService.loggedIn()" class="nav-item">
+                    <a class="nav-link" routerLink="/register">SIGNUP</a>
+                </li>
+                <li *ngIf="!authService.loggedIn()" class="nav-item">
+                    <a class="nav-link" (click)="onLogoutClick()" style="cursor: pointer;">LOGOUT</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+

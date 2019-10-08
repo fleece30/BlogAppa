@@ -1,2 +1,24 @@
-<h1>home works!</h1>
-<button><a routerLink="/register">Register</a></button>
+<div class="landing">
+        <div class="home-wrap">
+            <div class="home-inner">
+                <div class="off"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="caption text-center">
+        <h1>Welcome</h1>
+        <h3>Some Name</h3>
+        
+    
+      <form class = "formsearch" [formGroup]="myForm" action="search.php" method="POST" target="_blank">
+            <div id="search-container">
+                <div>
+                    <input id="search-bar" type="text" name="search" placeholder="Search..." formControlName="search">
+                </div>
+                <div>
+                    <input type = "submit" id = "search-button"><i class = " fas fa-search"></i>
+                </div>
+            </div>
+        </form>
+    </div>

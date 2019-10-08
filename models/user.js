@@ -30,7 +30,7 @@ const unameValidate = [{
 }];
 
 let passCheck = (password)=>{
-    if(!e.test(password)){
+    if(!p.test(password)){
         return false;
     }
 }
@@ -43,7 +43,7 @@ const passValidate = [{
 var userSchema = new Schema({
     email: {type: String, required: true, unique: true, lowercase: true, validate: emailValidate},
     username: {type: String, required: true, unique: true, lowercase: true, validate: unameValidate},
-    password: {type: String, required: true}
+    password: {type: String, required: true, validate: passValidate}
 }); 
 
 

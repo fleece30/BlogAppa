@@ -2,7 +2,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { HomeComponent } from './components/home/home.component';
 import { RegisterPageComponent } from './components/register-page/register-page.component';
-
+import { LoginComponent } from './components/login/login.component';
+import { PopupComponent } from './components/popup/popup.component';
 
 
 const routes: Routes = [
@@ -13,6 +14,14 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterPageComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'popup',
+    component: PopupComponent
   },
   {
     path: '**',

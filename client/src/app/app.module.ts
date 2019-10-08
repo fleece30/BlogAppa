@@ -7,12 +7,18 @@ import { HttpClientModule } from '@angular/common/http'
 import { RegisterPageComponent } from './components/register-page/register-page.component';
 import { HomeComponent } from './components/home/home.component';
 import { AuthService } from './services/auth.service';
+import { LoginComponent } from './components/login/login.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { PopupComponent } from './components/popup/popup.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterPageComponent,
-    HomeComponent
+    HomeComponent,
+    LoginComponent,
+    NavbarComponent,
+    PopupComponent
   ],
   imports: [
     BrowserModule,

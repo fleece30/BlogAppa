@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Lato|Montserrat|Poppins&display=swap');
+
+html{
+    scroll-behavior: smooth;
+    height: 100vh;
+    max-width: 100%;
+}
+
+body{
+    overflow-x: hidden;
+    font-family: 'Lato', sans-serif;
+    color: #353b48;
+    height: 100vh;
+    max-width: 100%;
+    background-color: black;
+}

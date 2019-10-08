@@ -1,11 +1,17 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Http2SecureServer } from 'http2';
+import { typeWithParameters } from '@angular/compiler/src/render3/util';
+import { JwtHelperService } from '@auth0/angular-jwt';
+
+const helper = new JwtHelperService();
 
 interface UserPostResponse {
   success: boolean;
   message: string;
+  token: string;
+  user: string;
 }
 @Injectable({
   providedIn: 'root'
@@ -14,12 +20,54 @@ interface UserPostResponse {
 export class AuthService {
 
   domain = "http://localhost:8080";
+  authToken;
+  user;
+  options;
   constructor(
     private http: HttpClient
-
   ) { }
 
+  createAuthenticationHeaders(){
+    this.loadToken();
+    this.options = new HttpResponse({
+      headers: new HttpHeaders({
+        'Content-type': 'application/json',
+        'authorization': this.authToken
+      })
+    });
+  }
+
+  loadToken(){
+    const token = localStorage.getItem('token');
+    this.authToken=token;
+    console.log(token);
+  }
+
   registerUser(user){
-     return this.http.post<UserPostResponse>(this.domain + '/authentication/register', user).pipe(map(res => res));
+    return this.http.post<UserPostResponse>(this.domain + '/authentication/register', user).pipe(map(res => res));
+  }
+
+  login(user){
+    return this.http.post<UserPostResponse>(this.domain + '/authentication/login', user).pipe(map(res => res));
+  }
+
+  storeUserData(token, user){
+    localStorage.setItem('token',token);
+    localStorage.setItem('user',JSON.stringify(user));
+    this.authToken = token;
+    this.user = user;  
+  }
+  logout(){
+    console.log(helper.isTokenExpired(this.authToken));
+    console.log(this.authToken);
+    this.authToken = null;
+    this.user = null;
+    localStorage.clear();
+    console.log(this.authToken);
+    console.log(helper.isTokenExpired(this.authToken));
+  }
+
+  loggedIn(){ 
+    return helper.isTokenExpired(this.authToken);
   }
 }

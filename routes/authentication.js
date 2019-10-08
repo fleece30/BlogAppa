@@ -1,4 +1,6 @@
 const User = require('../models/user');
+const jwt = require('jsonwebtoken');
+const config = require('../config/database');
 
 module.exports=function(router){
     router.post('/register', function(req, res){
@@ -32,7 +34,6 @@ module.exports=function(router){
                         else if(err.errors.password){
                             res.json({success: false, message: err.errors.password.message});
                         }
-                        // res.json({success: false, message: 'Could not save user, Error:',err});
                     }
                     else{
                         res.json({success: true, message: 'Registration Successful'});
@@ -42,6 +43,43 @@ module.exports=function(router){
         }
     }
     });
+
+    router.post('/login', (req, res) =>{
+        if(!req.body.username){
+            res.json({ success: false, message: "No username provided"});
+        } else {
+            if(!req.body.password){
+                res.json({ success: false, message: "No password provided"});
+            }
+         else {
+            User.findOne({username: req.body.username.toLowerCase()}, (err, user) =>{
+                if(err){
+                    res.json({ success: false, message: err});
+                } else {
+                    if(!user){
+                        res.json({ usccess: false, message: "User not found"});
+                    }
+                    else{
+                        const pass = user.comparePassword(req.body.password);
+                        if(!pass){
+                            res.json({success: false, message: 'Password invalid'});
+                        }
+                        else{
+                            const token = jwt.sign({
+                                userId: user._id
+                            }, config.secret, {expiresIn: '24h'});
+                            res.json({success: true, message: "logged in", token: token, user: {username: user.username}});
+                        }
+                    }
+                }
+            });
+        }
+    }
+    });
+
+    router.use((req,res,next) => {
+        req.headers['authorization'];
+    })
     
     return router;
 }
