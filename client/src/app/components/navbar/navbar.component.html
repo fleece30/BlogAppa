@@ -14,9 +14,6 @@
                 <li *ngIf="!authService.loggedIn()" class="nav-item">
                     <a class="nav-link" routerLink="/history">MEDICAL HISTORY</a>
                 </li>
-                <li *ngIf="!authService.loggedIn()" class="nav-item">
-                    <a class="nav-link">NOTIFICATIONS</a>
-                </li>
                 <li *ngIf="authService.loggedIn()" class="nav-item">
                     <a class="nav-link" routerLink="/login">LOGIN</a>
                 </li>
