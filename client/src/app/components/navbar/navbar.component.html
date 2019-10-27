@@ -12,7 +12,7 @@
                     <a class="nav-link popup1_open" routerLink="/popup" style="cursor: pointer;">BMI CALCULATOR</a>
                 </li>
                 <li *ngIf="!authService.loggedIn()" class="nav-item">
-                    <a class="nav-link">MEDICAL HISTORY</a>
+                    <a class="nav-link" routerLink="/history">MEDICAL HISTORY</a>
                 </li>
                 <li *ngIf="!authService.loggedIn()" class="nav-item">
                     <a class="nav-link">NOTIFICATIONS</a>
@@ -24,7 +24,7 @@
                     <a class="nav-link" routerLink="/register">SIGNUP</a>
                 </li>
                 <li *ngIf="!authService.loggedIn()" class="nav-item">
-                    <a class="nav-link" (click)="onLogoutClick()" style="cursor: pointer;">LOGOUT</a>
+                    <a class="nav-link" (click)="onLogoutClick()" onclick="location.replace('http:\/\/localhost:4200')" style="cursor: pointer;">LOGOUT</a>
                 </li>
             </ul>
         </div>

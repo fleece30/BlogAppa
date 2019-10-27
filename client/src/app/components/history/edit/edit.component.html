@@ -1,0 +1,14 @@
+<div class="container">
+    <h1>Edit Entry</h1>
+
+    <form (submit)="updateBlogSubmit()" *ngIf="!loading">
+        <div class="form-group">
+            Title: 
+            <input type="text" name="title" class="form-control" autocomplete="off" [(ngModel)]="blog.title">
+            Body: 
+            <textarea name="body" cols="80" rows="8" class="form-control" [(ngModel)]="blog.body"></textarea>
+        </div>
+        <button type="submit" name="button" class="btn btn-success">Save Changes</button>&nbsp;
+        <button type="button" name="button" class="btn btn-warning" (click)="goBack()">Go Back</button>
+    </form>
+</div>

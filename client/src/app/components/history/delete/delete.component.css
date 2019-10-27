@@ -1,0 +1,11 @@
+.container{
+    color: white;
+    position: absolute;
+    margin-top: 60px;
+    margin-left: 40px;
+}
+.card, .modal-content{
+    color: black;
+    margin: 30px;
+    width: 800px;
+}

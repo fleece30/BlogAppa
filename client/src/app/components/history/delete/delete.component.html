@@ -1,0 +1,43 @@
+<div class="container">
+    <h1>Delete Entry</h1>
+
+    <!-- Modal Confirmation Window -->
+    <div class="col-md-6" *ngIf="foundBlog">
+        <!-- Model Outer Layer -->
+        <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+            
+            <!-- Modal Title -->
+            <h4 class="modal-title">Confirm</h4>
+        </div>
+    
+        <!-- Modal Body -->
+        <div class="modal-body">
+            <p>Are you sure you would like to delete this blog?</p>
+        </div>
+    
+        <!-- Modal Footer -->
+        <div class="modal-footer">
+            <!-- Yes Button -->
+            <button type="button" name="button" class="btn btn-success" (click)="deleteBlog()">Yes</button>
+            <!-- No Button -->
+            <a routerLink="/history"><button type="button" name="button" class="btn btn-danger">No</button></a>
+        </div>
+    </div>
+  
+    <br />
+
+    <div class="card"> 
+            <div class="card-header">
+                <h3 class="card-title">{{blog.title}}</h3>
+            </div>
+            <div class="card-block" style="padding: 20px;">
+                {{blog.body}}
+            </div>
+            <div class="card-footer">
+                <p><strong>Posted By: </strong>{{blog.createdBy}}</p>
+                <p><strong>Date: </strong>{{blog.createdAt | date: 'MMM dd, yyyy'}}</p>
+            </div>
+    </div>
+</div>

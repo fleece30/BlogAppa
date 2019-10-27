@@ -4,7 +4,10 @@ import { HomeComponent } from './components/home/home.component';
 import { RegisterPageComponent } from './components/register-page/register-page.component';
 import { LoginComponent } from './components/login/login.component';
 import { PopupComponent } from './components/popup/popup.component';
-
+import { ResultsComponent } from './components/results/results.component';
+import { HistoryComponent } from './components/history/history.component';
+import { DeleteComponent } from './components/history/delete/delete.component';
+import { EditComponent } from './components/history/edit/edit.component';
 
 const routes: Routes = [
   {
@@ -22,6 +25,22 @@ const routes: Routes = [
   {
     path: 'popup',
     component: PopupComponent
+  },
+  {
+    path: 'results',
+    component: ResultsComponent
+  },
+  {
+    path: 'history',
+    component: HistoryComponent
+  },
+  {
+    path: 'delete/:id',
+    component: DeleteComponent
+  },
+  {
+    path: 'edit/:id',
+    component: EditComponent
   },
   {
     path: '**',

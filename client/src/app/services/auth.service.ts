@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-import { Http2SecureServer } from 'http2';
-import { typeWithParameters } from '@angular/compiler/src/render3/util';
 import { JwtHelperService } from '@auth0/angular-jwt';
 
 const helper = new JwtHelperService();
@@ -40,7 +38,6 @@ export class AuthService {
   loadToken(){
     const token = localStorage.getItem('token');
     this.authToken=token;
-    console.log(token);
   }
 
   registerUser(user){
@@ -58,13 +55,9 @@ export class AuthService {
     this.user = user;  
   }
   logout(){
-    console.log(helper.isTokenExpired(this.authToken));
-    console.log(this.authToken);
     this.authToken = null;
     this.user = null;
     localStorage.clear();
-    console.log(this.authToken);
-    console.log(helper.isTokenExpired(this.authToken));
   }
 
   loggedIn(){ 

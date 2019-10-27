@@ -1,0 +1,43 @@
+<div class="container">
+
+    <h1>Medical History</h1>
+    
+    <button type="button" name="button" class="btn btn-warning" *ngIf="!newBlog" (click)="newPost()">New Entry</button>&nbsp;&nbsp;
+    <button type="button" [disabled]="loadingBlogs" name="button" class="btn btn-light" *ngIf="!newBlog" (click)="reloadPosts()"><i class="fas fa-redo-alt"></i>&nbsp;&nbsp;Reload</button>
+    
+    <br><br>
+    
+    <form [formGroup]="form" name="blogForm" (submit)="onBlogSubmit()" *ngIf="newBlog">
+        <div class="form-group">
+            Title: 
+            <input type="text" name="title" class="form-control" autocomplete="off" formControlName="title">
+            Body: 
+            <textarea name="body" cols="80" rows="8" class="form-control" formControlName="body"></textarea>
+        </div>
+        <button type="submit" name="button" class="btn btn-success">Submit</button>&nbsp;
+        <button type="button" name="button" class="btn btn-warning" (click)="goBack()">Go Back</button>
+    </form>
+    
+    
+    <div *ngIf="!newBlog">
+        <div *ngFor="let blog of blogPosts">
+            <div class="card" *ngIf="username===blog.createdBy"> 
+                <div class="card-header">
+                    <h3 class="card-title">{{blog.title}}</h3>
+                </div>
+                <div class="card-block" style="padding: 20px;">
+                    {{blog.body}}
+                </div>
+                <div class="card-footer">
+                    <p><strong>Posted By: </strong>{{blog.createdBy}}</p>
+                    <p><strong>Date: </strong>{{blog.createdAt | date: 'MMM dd, yyyy'}}</p>
+                    
+                    <a [routerLink]="['/delete/',blog._id]"><button type="button" name="button" class="btn btn-sm btn-danger" *ngIf="username===blog.createdBy">Delete Entry</button></a>&nbsp;
+                    <a [routerLink]="['/edit/',blog._id]"><button type="button" name="button" class="btn btn-sm btn-warning" *ngIf="username===blog.createdBy">Edit Entry</button></a>&nbsp;
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    </div>

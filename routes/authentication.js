@@ -77,9 +77,9 @@ module.exports=function(router){
     }
     });
 
-    router.use((req,res,next) => {
-        req.headers['authorization'];
-    })
+    // router.use((req,res,next) => {
+    //     req.headers['authorization'];
+    // })
     
     return router;
 }

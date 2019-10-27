@@ -8,16 +8,16 @@
 
     <div class="caption text-center">
         <h1>Welcome</h1>
-        <h3>Some Name</h3>
+        <h3>To Sekhmet</h3>
         
     
-      <form class = "formsearch" [formGroup]="myForm" action="search.php" method="POST" target="_blank">
-            <div id="search-container">
+      <form *ngIf="authService.loggedIn()" ng-app="form" #f="ngForm" class = "formsearch" [(ngModel)]="form" method="POST" [formGroup]="myForm" [ngModelOptions]="{standalone: true}" ngDefaultControl>
+            <div id="search-container" ng-controller="formController">
                 <div>
-                    <input id="search-bar" type="text" name="search" placeholder="Search..." formControlName="search">
+                    <input id="search-bar" type="text" name="search" placeholder="Search..." formControlName="search" ng-model="form.search">
                 </div>
                 <div>
-                    <input type = "submit" id = "search-button"><i class = " fas fa-search"></i>
+                    <button type="button" routerLink="/results" ng-click="submit()" id = "search-button"><i class = "fas fa-search"></i></button>
                 </div>
             </div>
         </form>

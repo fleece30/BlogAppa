@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 declare var test: any;
 
@@ -7,8 +7,11 @@ declare var test: any;
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'client';
+  ngOnInit(){
+  }
+  
 
   f(){
     test();

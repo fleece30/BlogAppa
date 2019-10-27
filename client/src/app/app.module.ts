@@ -10,6 +10,12 @@ import { AuthService } from './services/auth.service';
 import { LoginComponent } from './components/login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { PopupComponent } from './components/popup/popup.component';
+import { FormsModule } from '@angular/forms';
+import { ResultsComponent } from './components/results/results.component';
+import { HistoryComponent } from './components/history/history.component';
+import { HistoryService } from './services/history.service';
+import { EditComponent } from './components/history/edit/edit.component';
+import { DeleteComponent } from './components/history/delete/delete.component';
 
 @NgModule({
   declarations: [
@@ -18,15 +24,20 @@ import { PopupComponent } from './components/popup/popup.component';
     HomeComponent,
     LoginComponent,
     NavbarComponent,
-    PopupComponent
+    PopupComponent,
+    ResultsComponent,
+    HistoryComponent,
+    EditComponent,
+    DeleteComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, HistoryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

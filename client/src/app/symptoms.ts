@@ -1,6 +1,6 @@
 export class symptoms{
     constructor(
-        disease: string,
+        ailment: string,
         severity: string,
         symptoms: string
     ){}
