@@ -33,7 +33,7 @@ export class DeleteComponent implements OnInit {
     this.historyService.getSingleBlog(this.currentURL.id).subscribe(data => {
       this.blog = {
         title: data.blogs.title,
-        body: data.blogs.title,
+        body: data.blogs.body,
         createdBy: data.blogs.createdBy,
         createdAt: data.blogs.createdAt
       };

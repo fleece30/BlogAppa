@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		@import url('https://fonts.googleapis.com/css?family=Lato|Montserrat|Poppins&display=swap');
+		html{
+    		scroll-behavior: smooth;
+    		height: 100%;
+    		max-width: 100%;
+		}
+		body{
+    		font-family: 'Lato', sans-serif;
+    		height: 100%;
+    		max-width: 100%;
+		}
+		div{
+			padding: 10px;
+		}
+
+		abbr{
+			text-decoration: none;
+		}
+
+		form{
+			position: relative;
+			float: left;
+		}
+
+		.heartimg{
+			position: relative;
+			float: left;
+			width: 55%;
+		}
+		.form-container{
+			position: absolute;
+			margin: 10px;
+			left: 50%;
+			display: grid;
+			grid-template-rows: 1fr 1fr;
+			width: 80%;
+			transform: translateX(-50%);
+		}
+		.form-fill{
+			grid-row: 1/2;	
+			height: auto;	
+		}
+
+		.form-fill input{
+			background-color: white;
+			height: 100%;
+			color: black;
+			padding: 10px;
+		}
+
+		.form-result{
+			grid-row: 2/3;
+		}
+
+		.input{
+			background-color: white;
+			border: 1px solid grey;
+		}
+
+		.input:focus{
+			border-color: #2196F3;
+			border-width: 1px;
+		}
+
+		td{
+			padding: 5px;
+		}
+
+		.btn{
+			background-color: white;
+			border: 1px solid grey;
+			font-size: 15px;
+			padding: 5px;
+		}
+
+		.btn:hover{
+			background-color: #2196F3;
+			color: white;
+			cursor: pointer;
+		}
+
+		.btn{
+		}
+	</style>
+</head>
+<body>
+<div class = "form-container">
+
+	<div class = "form-fill">
+		<h1>Heart Risk Assessment</h1>
+			<form action = "http://localhost/api/heartrisk1.php" method = "POST">
+				<table>
+					<tr><td>First Name:</td><td><input type="text" name="fname" class = "input"></td></tr>
+					<tr><td>Last Name:</td><td><input type="text" name="lname" class = "input"></td></tr>
+					<tr><td>Total Cholesterol</td><td><input type="text" name="totalC" class = "input">  mg/dL</td></tr>
+					<tr><td><abbr title = "High Density Lipoprotein(Good Cholesterol)">HDL Cholesterol<sup>*</sup></abbr></td><td><input type="text" name="HC" class = "input">  mg/dL</td></tr>
+					<tr><td><abbr title = "Low Density Lipoprotein(Bad Cholesterol)">LDL Cholesterol<sup>*</sup></abbr></td><td><input type="text" name="LC" class = "input">  mg/dL</td></tr>
+					<tr><td><abbr title = "Triglycerides are chemical compounds digested by the body to provide it with the energy for metabolism. Triglycerides are the most common form of fat in the body. They are the main ingredient in vegetable oils and animal fats.">Triglycerides<sup>*</sup></abbr></td><td><input type="text" name="trig" class = "input">  mg/dL</td></tr>
+					<tr><td><abbr title = "The maximum pressure your heart exerts while beating.(Top number)">Systolic Blood Pressure<sup>*</sup></td><td><input type="text" name="sbp" class = "input">  mmHg</td></tr>
+					<tr><td><abbr title = "The amount of pressure in your arteries between beats(Bottom number)">Diastolic Blood Pressure<sup>*</sup></td><td><input type="text" name="dbp" class = "input">  mmHg</td></tr>
+					<tr><td>Are you taking any to<br>prevent High Blood Pressure</td><td><select>
+						<option>Select One</option>
+						<option>Yes</option>
+						<option>No</option>
+					</select></td></tr>
+					<tr><td>Birth Date</td><td><input type="date" name="dob"></td></tr>
+					<tr><td>Sex:</td><td><select name = "sex">
+						<option value="x">Select One</option>
+						<option value="m">Male</option>
+						<option value="f">Female</option>
+					</select></td></tr>
+				</table><br>
+				<input type ="submit" class = "btn" value="Calculate"> <i><sup>*</sup>Hover on the text for hints.</i>
+			</form>
+			<img src = "heart.jpeg" class = "heartimg">
+	</div>
+	<div class = "form-result">
+	</div>
+</div>
+</body>
+</html>
