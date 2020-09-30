@@ -41,7 +41,19 @@ module.exports = function (router) {
     }).sort({ _id: -1 });
   });
 
-  //Add code here
+  router.get("/singleBlog/:id", (req, res) => {
+    Blog.findOne({ _id: req.params.id }, (err, blogs) => {
+      if (err) {
+        res.json({ success: false, message: err });
+      } else {
+        if (!blogs) {
+          res.json({ success: false, message: "No blogs" });
+        } else {
+          res.json({ success: true, blogs: blogs });
+        }
+      }
+    });
+  });
 
   router.put("/updateBlog", (req, res) => {
     Blog.findOne({ _id: req.body._id }, (err, blogs) => {
