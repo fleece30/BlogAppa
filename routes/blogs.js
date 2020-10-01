@@ -65,5 +65,26 @@ module.exports = function (router) {
     });
   });
 
+  router.delete("/deleteBlog/:id", (req, res) => {
+    Blog.findOne({ _id: req.params.id }, (err, blogs) => {
+      if (err) {
+        console.log(err);
+        res.json({ success: false, message: err });
+      } else {
+        if (!blogs) {
+          res.json({ success: false, message: "No blogs" });
+        } else {
+          blogs.remove((err) => {
+            if (err) {
+              res.json({ success: false, message: err });
+            } else {
+              res.json({ success: true, message: "Blog Removed" });
+            }
+          });
+        }
+      }
+    });
+  });
+
   return router;
 };
