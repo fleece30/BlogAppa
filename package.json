@@ -22,7 +22,7 @@
   "homepage": "https://github.com/fleece30/BlogApp#readme",
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.17.1",
+    "express": "^4.18.2",
     "http2": "^3.3.7",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.7.1"
